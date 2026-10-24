@@ -95,8 +95,8 @@ def write_figure(rows: list[dict[str, object]], output: Path) -> None:
     ax.set_ylim(59.0, 63.0)
     ax.grid(axis="y", color="#d9d9d9", linewidth=0.55)
     ax.set_axisbelow(True)
-    ax.spines["top"].set_visible(False)
-    ax.spines["right"].set_visible(False)
+    ax.spines["top"].set_visible(True)
+    ax.spines["right"].set_visible(True)
     ax.tick_params(labelsize=6.2)
     ax.legend(
         handles=[
@@ -106,14 +106,18 @@ def write_figure(rows: list[dict[str, object]], output: Path) -> None:
             Line2D([0], [0], color="0.25", marker="s", markerfacecolor="white", linestyle="None", markersize=4, label="Split B"),
         ],
         loc="lower center",
-        bbox_to_anchor=(0.5, 1.02),
-        frameon=False,
+        bbox_to_anchor=(0.5, 0.02),
+        frameon=True,
+        framealpha=0.9,
+        facecolor="white",
+        edgecolor="0.45",
+        borderpad=0.3,
         fontsize=6.2,
         ncol=4,
         handletextpad=0.35,
         columnspacing=0.8,
     )
-    fig.tight_layout(pad=0.55, rect=(0.0, 0.0, 1.0, 0.84))
+    fig.tight_layout(pad=0.55)
     output.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output, bbox_inches="tight", pad_inches=0.03)
     plt.close(fig)
