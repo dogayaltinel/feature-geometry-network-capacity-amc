@@ -2,6 +2,7 @@
 
 \RequirePackage{ifpdf}
 \RequirePackage{xkeyval}
+\RequirePackage{ragged2e}
 
 \ifpdf
  \pdfmapfile{+ t1-times.map}
@@ -223,21 +224,21 @@
 % test if is a for a figure or table
 \ifx\@captype\@IEEEtablestring%
 % if a table, do table caption
-\begin{flushleft}
 \vspace*{5pt}
-{\vss\color{accessblue}\tablecapheadfont #1. \ }{\raggedright\tablecapfont#2\vss}%
-\end{flushleft}
+\noindent\parbox[t]{\hsize}{\justifying
+{\vss\color{accessblue}\tablecapheadfont #1. \ }{\tablecapfont#2\vss}}%
 \@IEEEtablecaptionsepspace% V1.6 was a hard coded 8pt
 % if not a table, format it as a figure
 \else
 \@IEEEfigurecaptionsepspace% V1.6 was a hard coded 5pt
 % 3/2001 use footnotesize, not small; use two nonbreaking spaces, not one
-\setbox\@tempboxa\hbox{\strut{\color{accessblue}\figcapheadfont #1. \ }\raggedright\figcapfont#2\strut}%
+\setbox\@tempboxa\hbox{\strut{\color{accessblue}\figcapheadfont #1. \ }\figcapfont#2\strut}%
 %\ifdim \wd\@tempboxa >\columnwidth%
 \ifdim \xfigwd >\columnwidth%
 % if caption is longer than a line, let it wrap around
 \setbox\@tempboxa\hbox{{\color{accessblue}\figcapheadfont #1. \ }}%
-\mbox{}\hfill\begin{tabular}{@{}l@{}}\noindent\raggedright\unhbox\@tempboxa\figcapfont#2\end{tabular}\hfill\mbox{}%
+\noindent\parbox[t]{\xfigwd}{\justifying
+\unhbox\@tempboxa\figcapfont#2}%
 % if caption is shorter than a line,
 % allow user to control short figure caption justification (left or center)
 \else%
@@ -245,7 +246,8 @@
 %\else 
 \setbox\@tempboxa\hbox{{\color{accessblue}\figcapheadfont #1. \ }}%
 %\parbox[t]{\columnwidth}
-{\vss\raggedright\noindent\unhbox\@tempboxa\figcapfont#2\vss}%
+{\vss\noindent\parbox[t]{\xfigwd}{\justifying
+\unhbox\@tempboxa\figcapfont#2\vss}}%
 %\hbox to\hsize{\box\@tempboxa\hfil}%
 %\fi
 \fi\fi\vskip 1pt plus 1pt minus 1pt}
