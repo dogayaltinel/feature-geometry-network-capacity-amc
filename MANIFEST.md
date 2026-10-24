@@ -6,7 +6,7 @@
 
 **Lock date:** 2026-10-17
 
-**Manifest revision:** Pilot v1 decision record in `pilot_runs_v1/pilot_analysis.json`.
+**Manifest revision:** Pilot v1 decision is summarized in the locked analysis records under `analysis/`.
 
 ## 1. Scientific question
 
@@ -114,7 +114,7 @@ The decision uses validation only. For each cell and seed, compute `validation_3
 
 Pilot records are labeled separately. Runs at the selected budget may be reused in the descriptive main grid when their split, seed, code, and configuration hashes match exactly. They are not counted as independent confirmatory evidence solely because they were reused.
 
-The completed 24-run pilot selected a 300-epoch budget. The paired final-validation analysis used percentage-point differences with a +/-0.15 percentage-point equivalence margin; the paired t interval was [-0.256, +0.309] percentage points and the paired bootstrap interval was [-0.218, +0.271] percentage points. Because the intervals were not contained in the equivalence band, 200 epochs was not accepted. The decision record is `pilot_runs_v1/pilot_analysis.json`; test data were not accessed.
+The completed 24-run pilot selected a 300-epoch budget. The paired final-validation analysis used percentage-point differences with a +/-0.15 percentage-point equivalence margin; the paired t interval was [-0.256, +0.309] percentage points and the paired bootstrap interval was [-0.218, +0.271] percentage points. Because the intervals were not contained in the equivalence band, 200 epochs was not accepted. The locked summary is represented in the current analysis records; raw pilot checkpoints, predictions, and per-run logs are not part of this public package.
 
 ## 9. Run matrix
 
@@ -228,4 +228,10 @@ The study is limited to one synthetic corpus, a 128-sample window, one main back
 
 ## 21. Reproducibility package
 
-The final package contains this manifest, commit hashes, split indices, configurations, source code, cost ledgers, raw validation and test results, predictions, checkpoints where permitted, environment locks, logs, and table/figure generation scripts. The RML2016.10a data file is not redistributed; its source and SHA-256 are recorded.
+This public package contains this manifest, source and commit metadata, split
+indices, source code, cost ledgers, locked aggregate validation/test summaries,
+analysis artifacts, environment locks, literature records, and table/figure
+generation scripts. The RML2016.10a data file, checkpoints, prediction arrays,
+per-run training logs, and access tokens are not redistributed. The dataset
+source and SHA-256 are recorded so that an authorized local copy can be checked
+before regeneration.

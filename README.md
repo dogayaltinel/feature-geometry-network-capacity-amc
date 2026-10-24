@@ -10,7 +10,7 @@ evaluation rules fixed.
 
 - `paper/`: IEEE Access LaTeX source, bibliography, tables, figures, and
   generated macros used for the manuscript.
-- `scripts/`, `src/`, `configs/`, and `tests/`: feature construction,
+- `scripts/`, `src/`, and `tests/`: feature construction,
   backbone, ledger, analysis, and validation code.
 - `data_splits/`: split metadata, index arrays, and the split audit. The raw
   dataset is not included.
