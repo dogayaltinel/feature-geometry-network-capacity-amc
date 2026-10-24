@@ -225,7 +225,7 @@
 \ifx\@captype\@IEEEtablestring%
 % if a table, do table caption
 \vspace*{5pt}
-\noindent\parbox[t]{\hsize}{\setlength{\parindent}{0pt}\justifying
+\noindent\hspace*{-10pt}\parbox[t]{\hsize}{\setlength{\parindent}{0pt}\justifying
 {\vss\color{accessblue}\tablecapheadfont #1. \ }{\tablecapfont#2\vss}}%
 \@IEEEtablecaptionsepspace% V1.6 was a hard coded 8pt
 % if not a table, format it as a figure
@@ -237,7 +237,7 @@
 \ifdim \xfigwd >\columnwidth%
 % if caption is longer than a line, let it wrap around
 \setbox\@tempboxa\hbox{{\color{accessblue}\figcapheadfont #1. \ }}%
-\noindent\parbox[t]{\xfigwd}{\setlength{\parindent}{0pt}\justifying
+\noindent\hspace*{-10pt}\parbox[t]{\xfigwd}{\setlength{\parindent}{0pt}\justifying
 \unhbox\@tempboxa\figcapfont#2}%
 % if caption is shorter than a line,
 % allow user to control short figure caption justification (left or center)
@@ -246,7 +246,7 @@
 %\else 
 \setbox\@tempboxa\hbox{{\color{accessblue}\figcapheadfont #1. \ }}%
 %\parbox[t]{\columnwidth}
-{\vss\noindent\parbox[t]{\xfigwd}{\setlength{\parindent}{0pt}\justifying
+{\vss\noindent\hspace*{-10pt}\parbox[t]{\xfigwd}{\setlength{\parindent}{0pt}\justifying
 \unhbox\@tempboxa\figcapfont#2\vss}}%
 %\hbox to\hsize{\box\@tempboxa\hfil}%
 %\fi
