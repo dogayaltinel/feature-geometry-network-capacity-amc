@@ -66,7 +66,7 @@ def write_figure(rows: list[dict[str, object]], output: Path) -> None:
         grouped[(str(row["feature"]), float(row["width"]))].append(row)
 
     # Preserve the previous data scale while expanding the visible y-range.
-    fig, ax = plt.subplots(figsize=(3.35, 2.68))
+    fig, ax = plt.subplots(figsize=(3.35, 3.02))
     feature_offsets = {"F2": -0.04, "F7": 0.04}
     line_styles = {"F2": "-", "F7": "--"}
     for feature in FEATURES:
