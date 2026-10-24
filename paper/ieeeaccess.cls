@@ -225,32 +225,13 @@
 \ifx\@captype\@IEEEtablestring%
 % if a table, do table caption
 \vspace*{5pt}
-\noindent\hspace*{-10pt}\parbox[t]{\hsize}{\setlength{\parindent}{0pt}\justifying
-\noindent{\vss\color{accessblue}\tablecapheadfont #1. \ }{\tablecapfont#2\vss}}%
+\noindent\justifying{\color{accessblue}\tablecapheadfont #1. \ }\tablecapfont#2\par%
 \@IEEEtablecaptionsepspace% V1.6 was a hard coded 8pt
 % if not a table, format it as a figure
 \else
 \@IEEEfigurecaptionsepspace% V1.6 was a hard coded 5pt
-% 3/2001 use footnotesize, not small; use two nonbreaking spaces, not one
-\setbox\@tempboxa\hbox{\strut{\color{accessblue}\figcapheadfont #1. \ }\figcapfont#2\strut}%
-%\ifdim \wd\@tempboxa >\columnwidth%
-\ifdim \xfigwd >\columnwidth%
-% if caption is longer than a line, let it wrap around
-\setbox\@tempboxa\hbox{{\color{accessblue}\figcapheadfont #1. \ }}%
-\noindent\hspace*{-10pt}\parbox[t]{\xfigwd}{\setlength{\parindent}{0pt}\justifying
-\noindent\unhbox\@tempboxa\figcapfont#2}%
-% if caption is shorter than a line,
-% allow user to control short figure caption justification (left or center)
-\else%
-%\ifcenterfigcaptions \hbox to\hsize{\footnotesize\hfil\box\@tempboxa\hfil}%
-%\else 
-\setbox\@tempboxa\hbox{{\color{accessblue}\figcapheadfont #1. \ }}%
-%\parbox[t]{\columnwidth}
-{\vss\noindent\hspace*{-10pt}\parbox[t]{\xfigwd}{\setlength{\parindent}{0pt}\justifying
-\noindent\unhbox\@tempboxa\figcapfont#2\vss}}%
-%\hbox to\hsize{\box\@tempboxa\hfil}%
-%\fi
-\fi\fi\vskip 1pt plus 1pt minus 1pt}
+\noindent\justifying{\color{accessblue}\figcapheadfont #1. \ }\figcapfont#2\par%
+\fi\vskip 1pt plus 1pt minus 1pt}
 
 %tables
 \ifjtehm
