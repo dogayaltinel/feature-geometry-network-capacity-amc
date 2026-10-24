@@ -90,14 +90,14 @@ def write_figure(rows: list[dict[str, object]], output: Path) -> None:
         ax.plot(WIDTHS, means, color=FEATURE_COLORS[feature], linestyle=line_styles[feature], marker="D", markersize=4.2, linewidth=1.25, zorder=4)
 
     ax.set_xticks(WIDTHS, ["0.50$\u00d7$", "1.00$\u00d7$", "2.00$\u00d7$"])
-    ax.set_xlabel("Width multiplier", fontsize=7.2)
-    ax.set_ylabel("Final-epoch test accuracy (%)", fontsize=7.2)
+    ax.set_xlabel("Width multiplier", fontsize=6.2)
+    ax.set_ylabel("Final-epoch test accuracy (%)", fontsize=6.2)
     ax.set_ylim(59.0, 63.0)
     ax.grid(axis="y", color="#d9d9d9", linewidth=0.55)
     ax.set_axisbelow(True)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
-    ax.tick_params(labelsize=7.2)
+    ax.tick_params(labelsize=6.2)
     ax.legend(
         handles=[
             Line2D([0], [0], color=FEATURE_COLORS["F2"], linestyle="-", marker="D", linewidth=1.25, markersize=4, label="F2"),
@@ -108,7 +108,7 @@ def write_figure(rows: list[dict[str, object]], output: Path) -> None:
         loc="lower center",
         bbox_to_anchor=(0.5, 1.02),
         frameon=False,
-        fontsize=7.2,
+        fontsize=6.2,
         ncol=4,
         handletextpad=0.35,
         columnspacing=0.8,

@@ -237,7 +237,7 @@ def write_plot_pdf(path: Path, contrasts: dict[str, dict], measurement: str) -> 
     ax.set_xlim(-1.35, 2.10)
     ax.set_xticks([-1, 0, 1, 2])
     ax.set_xlabel(f"Difference in {measurement} accuracy (percentage points)")
-    ax.legend(loc="lower right", fontsize=8, frameon=False)
+    ax.legend(loc="lower right", fontsize=9, frameon=False)
     fig.tight_layout()
     fig.savefig(path, format="pdf", bbox_inches="tight")
     plt.close(fig)
