@@ -65,17 +65,19 @@ def write_figure(rows: list[dict[str, object]], output: Path) -> None:
     for row in rows:
         grouped[(str(row["feature"]), float(row["width"]))].append(row)
 
-    fig, ax = plt.subplots(figsize=(3.35, 2.55))
+    fig, ax = plt.subplots(figsize=(3.35, 2.70))
+    feature_offsets = {"F2": -0.04, "F7": 0.04}
+    line_styles = {"F2": "-", "F7": "--"}
     for feature in FEATURES:
         means = []
         for width in WIDTHS:
             values = grouped[(feature, width)]
             means.append(sum(float(row["accuracy"]) for row in values) / len(values))
-            offsets = [-0.035 + 0.0078 * index for index in range(len(values))]
+            offsets = [-0.025 + 0.0056 * index for index in range(len(values))]
             for offset, row in zip(offsets, sorted(values, key=lambda item: (item["split"], item["seed"]))):
                 is_split_a = row["split"] == "A"
                 ax.scatter(
-                    width + offset,
+                    width + feature_offsets[feature] + offset,
                     row["accuracy"],
                     s=18,
                     marker="o" if is_split_a else "s",
@@ -84,12 +86,12 @@ def write_figure(rows: list[dict[str, object]], output: Path) -> None:
                     linewidths=0.65,
                     zorder=3,
                 )
-        ax.plot(WIDTHS, means, color=FEATURE_COLORS[feature], marker="D", markersize=4.2, linewidth=1.25, zorder=4)
+        ax.plot(WIDTHS, means, color=FEATURE_COLORS[feature], linestyle=line_styles[feature], marker="D", markersize=4.2, linewidth=1.25, zorder=4)
 
     ax.set_xticks(WIDTHS, ["0.50$\u00d7$", "1.00$\u00d7$", "2.00$\u00d7$"])
     ax.set_xlabel("Width multiplier")
     ax.set_ylabel("Final-epoch test accuracy (%)")
-    ax.set_ylim(60.0, 66.0)
+    ax.set_ylim(59.8, 63.0)
     ax.grid(axis="y", color="#d9d9d9", linewidth=0.55)
     ax.set_axisbelow(True)
     ax.spines["top"].set_visible(False)
@@ -97,19 +99,20 @@ def write_figure(rows: list[dict[str, object]], output: Path) -> None:
     ax.tick_params(labelsize=8)
     ax.legend(
         handles=[
-            Line2D([0], [0], color=FEATURE_COLORS["F2"], marker="D", linewidth=1.25, markersize=4, label="F2"),
-            Line2D([0], [0], color=FEATURE_COLORS["F7"], marker="D", linewidth=1.25, markersize=4, label="F7"),
+            Line2D([0], [0], color=FEATURE_COLORS["F2"], linestyle="-", marker="D", linewidth=1.25, markersize=4, label="F2"),
+            Line2D([0], [0], color=FEATURE_COLORS["F7"], linestyle="--", marker="D", linewidth=1.25, markersize=4, label="F7"),
             Line2D([0], [0], color="0.25", marker="o", markerfacecolor="0.25", linestyle="None", markersize=4, label="Split A"),
             Line2D([0], [0], color="0.25", marker="s", markerfacecolor="white", linestyle="None", markersize=4, label="Split B"),
         ],
-        loc="lower right",
+        loc="lower center",
+        bbox_to_anchor=(0.5, 1.02),
         frameon=False,
         fontsize=7.2,
-        ncol=2,
+        ncol=4,
         handletextpad=0.35,
         columnspacing=0.8,
     )
-    fig.tight_layout(pad=0.55)
+    fig.tight_layout(pad=0.55, rect=(0.0, 0.0, 1.0, 0.84))
     output.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output, bbox_inches="tight", pad_inches=0.03)
     plt.close(fig)
