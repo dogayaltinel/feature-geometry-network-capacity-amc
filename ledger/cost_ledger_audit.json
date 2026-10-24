@@ -1,0 +1,11 @@
+{
+  "schema_version": "feature_geometry.cost_ledger_audit.v1",
+  "ledger_sha256": "c1f87a1ae560416078c64cdd21fb4726cfd51c1997a82ac3995a0bd4c91bf7f4",
+  "rows": 40,
+  "unique_ledger_keys": 40,
+  "accuracy_accessed": false,
+  "core_flops_equals_two_core_macs": true,
+  "total_flops_equals_core_plus_non_mac_plus_preprocessing": true,
+  "independent_profiler_max_relative_difference": 0.0,
+  "status": "pass"
+}

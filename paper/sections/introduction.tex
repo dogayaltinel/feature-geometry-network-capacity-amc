@@ -1,0 +1,212 @@
+\section{Introduction}
+\label{sec:introduction}
+Automatic modulation classification (AMC) identifies the modulation format of a
+received signal without transmitter-side signaling. It supports cognitive-radio
+receivers, spectrum monitoring, and adaptive wireless systems. Convolutional
+classifiers applied directly to complex in-phase/quadrature (I/Q) samples and
+the RML2016.10a benchmark established a common basis for deep-learning AMC
+comparisons \cite{OShea2016Dataset,OShea2016CRR}. Recent surveys describe a
+large design space involving signal representations, network structures,
+preprocessing, and training procedures \cite{Peng2022Survey,Zhang2022DLAMR,
+HuynhThe2021Survey}.
+
+Two design choices recur throughout this literature. The first is \emph{feature
+geometry}: a classifier may receive raw I/Q samples or derived amplitude,
+phase, polar, constellation, or multi-channel features. The second is
+\emph{network capacity}, expressed through width, depth, stages, parameter
+count, or operation count. In practice, the two choices are often changed
+together. A new representation may be introduced with a new stem, fusion
+branch, attention block, or training recipe, while a larger network may also
+change the input interface. A reported accuracy difference can therefore
+reflect the representation, the capacity used to process it, or the training
+and evaluation protocol.
+
+Evidence on the two factors is mixed. Several RML studies report saturation or
+limited gains as depth, stages, or other capacity-related choices increase
+\cite{West2017Deep,Chen2022SigNet,Harper2023AMC}. For representations, polar
+and constellation formulations use transformed signal views
+\cite{Peng2019Constellation,Teng2018Polar,Teng2020Polar}. A visualization
+study compared I/Q and amplitude/phase inputs under the same LeNet-style and
+ResNet-style classifier families over 0--18~dB SNR; the CNN differences were
+below one percentage point, whereas an LSTM trained on I/Q failed to learn
+\cite{Huang2021Visualizing}. An earlier study also compared amplitude/phase
+and I/Q inputs under recurrent and convolutional classifiers
+\cite{Rajendran2018Deep}. These results indicate that the effect of input
+geometry can depend on the classifier, but they do not determine its size for
+the fixed short-window backbone studied here.
+
+Multi-channel and fusion models make attribution more difficult. MCLDNN
+combines separate and joint I/Q streams with spatiotemporal processing
+\cite{Xu2020MCLDNN}; other methods fuse predictions or learned features across
+signal segments or feature views \cite{Zheng2019Fusion,Li2023LightMFFS}.
+Recent feature-layer multimodal fusion also combines sequence and image
+representations with CNN, LSTM, and attention modules \cite{Wang2024AMFN}.
+Such systems are valuable receiver designs, but representation, stem, branch
+count, fusion operation, and parameter count may change together. Their results
+therefore establish the value of a complete design rather than the isolated
+effect of feature geometry.
+
+Lightweight AMC research targets compact models and reduced computational
+requirements. MCNet and related efficient CNNs use compact convolutional
+structures \cite{HuynhThe2020MCNet,Lin2020HybridNet}; other systems use
+multi-feature fusion, embedded-device-oriented time/phase processing, or mobile
+Transformer components to obtain accuracy--cost trade-offs
+\cite{Cui2023TimePhase,Li2023LightMFFS,Fei2024MobileAmcT,Zheng2023MobileRaT}.
+Recent compact examples add cross-channel fusion and attention to an ultra-light
+CNN \cite{Wang2024ULNN}, adaptive wavelet extraction to depthwise-separable
+convolutions \cite{Quan2024ALWNN}, or residual shrinkage and a CNN--LSTM path
+\cite{Suman2025DPDRSN}. These studies report useful parameter, operation, or
+runtime comparisons, and several include component or representation ablations,
+but the ablated components remain coupled to their proposed architectures.
+HFEMCNet is a recent
+compact hybrid example that compares FFT-, DWT-, and DCT-based transformations
+and reports both component ablations and model-cost comparisons
+\cite{Ijaz2026HFEMCNet}. Its ablations vary spectral resolution and pathways,
+without providing a frequency-free counterpart, rather than crossing a fixed
+feature ladder with a width ladder. These
+comparisons are useful for model design, but they commonly change several
+architectural ingredients at once. They consequently motivate, rather than
+replace, a controlled feature-versus-capacity experiment.
+
+Among the representative works reviewed in Section~\ref{sec:related}, we did
+not identify a study that varies feature geometry and network width factorially
+on one backbone, under common splits and a common training protocol, with
+explicit cost accounting and paired seed- and split-level analysis. The gap is
+therefore not the absence of another AMC architecture. It is the absence of a
+controlled way to determine whether a change in short-window accuracy is
+associated primarily with feature geometry, network capacity, or their
+interaction.
+
+This paper addresses that question on short-window RML2016.10a signals. The
+corpus, 128-sample observation, backbone family, augmentation, optimizer,
+cosine schedule, and evaluation rules are fixed. Four nested feature
+configurations, F2, F3, F5, and F7, vary input geometry, while five width
+multipliers from $0.50$ to $2.00$ vary the capacity of one depthwise-separable
+backbone. Parameters, Core FLOPs, non-MAC FLOPs, and deterministic
+preprocessing FLOPs are recorded separately. The ledger supports admissible
+cost matching, but the results reported here use nominal width as the capacity
+axis and make no accuracy claim from a Core-FLOP-matched pair. A compact second
+backbone is reserved for a directional control rather than treated as a second
+full benchmark.
+
+H1--H3 are confirmatory hypotheses. H4 and H5 were pre-specified secondary
+analyses but are outside the results reported in this manuscript:
+\begin{enumerate}
+  \item \textbf{H1 (feature effect):} At fixed capacity, moving from F2 to F7 changes final-epoch test accuracy.
+  \item \textbf{H2 (capacity effect):} For a fixed feature set, moving from $0.50\times$ to $2.00\times$ width changes accuracy.
+  \item \textbf{H3 (interaction):} The accuracy change from added capacity depends on the feature geometry.
+  \item \textbf{H4 (SNR regions):} Feature and capacity effects differ between low, middle, and high SNR regions (not reported here).
+  \item \textbf{H5 (backbone generality):} The signs of the H1--H3 contrasts persist on a small second-backbone control (not reported here).
+\end{enumerate}
+
+The contributions are as follows:
+\begin{enumerate}
+  \item A nested feature ladder that makes representation changes explicit
+  instead of embedding them in different architectures.
+  \item A width ladder on one backbone with one channel-rounding rule, together
+  with a cost ledger that separates parameter, Core-FLOP, and preprocessing
+  costs.
+  \item Predeclared feature, capacity, and interaction contrasts reported with
+  seed- and split-level uncertainty; SNR-region and secondary-backbone analyses
+  are outside the present results.
+  \item Append-only run records, split audits, cost ledgers, and analysis
+  configuration files that make the study traceable from its records.
+\end{enumerate}
+
+The remainder of this paper is organized as follows. Section~II reviews
+related work. Section~III defines the controlled study and the feature and
+backbone factors. Section~IV describes the data, splits, training protocol,
+and measurements. Section~V reports the planned analyses and results.
+Section~VI discusses their implications, Section~VII states the scope and
+limitations, and the final sections provide data availability and the
+conclusion.
+
+\section{Related Work}
+\label{sec:related}
+We organize prior work by the factor that each line of research varies and
+controls. Table~\ref{tab:literature-matrix} summarizes the representative
+works; the categories are analytical groupings rather than claims that every
+paper in a category has identical properties.
+
+\input{tables/literature_matrix}
+
+\subsection{Raw I/Q baselines}
+The RML2016 datasets were generated with GNU Radio and released for machine
+learning research on modulation recognition \cite{OShea2016Dataset}. Early
+convolutional classifiers operated directly on raw I/Q windows
+\cite{OShea2016CRR}. West and O'Shea subsequently varied filters, filter taps,
+and depth in related raw-I/Q architectures, finding limited benefit from some
+capacity increases \cite{West2017Deep}. These studies establish the raw-I/Q
+baseline and motivate capacity analysis, but do not isolate feature geometry.
+
+\subsection{Input representation and feature fusion}
+Prior studies use amplitude/phase sequences, constellation diagrams, polar
+features, accumulated-polar features, and multi-channel I/Q views
+\cite{Rajendran2018Deep,Peng2019Constellation,Teng2018Polar,Teng2020Polar,
+Li2023LightMFFS,Xu2020MCLDNN}. The closest controlled comparisons use the same classifier
+families for multiple input forms, but they do not combine a feature ladder with
+a width ladder and a common paired analysis \cite{Huang2021Visualizing}.
+Teng et al. sweep model size for three input forms, but use simulated four-class
+data at a single SNR, rather than a paired feature--capacity design
+\cite{Teng2020Polar}.
+MobileRaT reports I/Q, A/P, and combined-input results at four pruned model
+sizes on RML2016.10a, but it provides one value per cell and does not report
+cost-matched pairs or paired uncertainty analysis; its size axis is therefore
+pruning-based rather than a width ladder \cite{Zheng2023MobileRaT}.
+Wang likewise motivates a dual-input design by using I/Q in a low-SNR
+path and A/P in a high-SNR path, while examining recurrent depth separately;
+the input and capacity factors are not crossed in one factorial experiment
+\cite{WangGuan2025DiDsNet}.
+Fusion methods additionally combine predictions or features from multiple
+segments and views \cite{Zheng2019Fusion,Li2023LightMFFS}. These works show
+the breadth of useful signal representations while also illustrating why
+feature and architecture effects are difficult to separate.
+
+\subsection{Capacity scaling and saturation}
+Studies of depth, width, stages, and model families provide evidence for
+saturation on RML data. West and O'Shea examined filter and depth changes
+\cite{West2017Deep}; SigNet compared ResNet depths and reported parameter and
+training-cost information \cite{Chen2022SigNet}; and Harper et al. related
+accuracy to parameterized architectural variants on RML2018.01A with
+1024-sample windows \cite{Harper2023AMC}. These results make capacity
+saturation a plausible question, but the reported capacity changes are not a
+factorial comparison with the same input representation and training protocol.
+Width multipliers are a standard way to scale depthwise-separable networks
+\cite{Howard2017MobileNets}, while balanced scaling studies motivate treating
+width as one explicit design axis rather than as a proxy for every architectural
+change \cite{Tan2019EfficientNet}.
+
+\subsection{Lightweight and efficient architectures}
+Compact AMC models include efficient CNNs, hybrid recurrent-convolutional
+networks, multi-feature fusion networks, and mobile Transformer designs
+\cite{HuynhThe2020MCNet,Lin2020HybridNet,Cui2023TimePhase,Li2023LightMFFS,
+Fei2024MobileAmcT,Zheng2023MobileRaT,Wang2024ULNN,Quan2024ALWNN,Suman2025DPDRSN}.
+They report parameter or operation reductions more often than general AMC
+studies, but comparisons across independently designed architectures confound
+representation, capacity, and implementation choices. The present study keeps
+one primary backbone fixed and changes only the feature channels and width.
+Its cost measure is analytical; it does not make a device-level latency or
+energy claim.
+
+\subsection{Evaluation protocol, variance, and statistics}
+Reported accuracy differences depend on seeds, splits, and evaluation rules.
+Benchmark studies show that seed variance can materially change reported
+rankings \cite{Henderson2018DeepRL,Bouthillier2021Variance}, and leakage or
+undocumented reuse of evaluation information can inflate confidence in
+machine-learning conclusions \cite{Kapoor2023Leakage}. Statistical comparisons
+of classifiers require care because some resampled-split tests can have
+inflated type-I error \cite{Dietterich1998Tests}; Bayesian practical-
+equivalence analysis provides a complementary way to describe small
+differences \cite{Benavoli2017Time}. Accordingly, this study fixes the split,
+seed, checkpoint, cost, and contrast definitions before test access and states
+that inference is conditional on the two declared splits.
+
+\subsection{Positioning}
+The reviewed works contain valuable representation comparisons, capacity
+studies, and efficient architectures. The specific contribution here is their
+combination in one controlled design: a nested feature ladder, a width ladder
+on a shared backbone, explicit cost accounting, and a predeclared paired
+analysis across seeds and two splits. This positioning is deliberately
+bounded; it does not claim that the reviewed models are inferior or that the
+resulting effects generalize beyond the stated corpus, window, and backbone
+scope.

@@ -1,0 +1,72 @@
+\documentclass{ieeeaccess}
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{flushend}
+\usepackage{placeins}
+
+\graphicspath{{figures/}}
+\input{generated/macros}
+
+\begin{document}
+
+\title{Feature Geometry Versus Network Capacity in Short-Window Automatic Modulation Classification}
+
+\author{\uppercase{Dogay Altinel}\authorrefmark{1}, \IEEEmembership{Member, IEEE}}
+\address[1]{Department of Electrical and Electronics Engineering, Istanbul Medeniyet University, Istanbul 34700, T\"urkiye}
+\corresp{Corresponding author: Dogay Altinel (e-mail: dogay.altinel@medeniyet.edu.tr).}
+\tfootnote{This research has been supported by the Research Fund of Istanbul Medeniyet University. Project Number: 2025-GAP-MDBF-0005.}
+
+\markboth{Altinel: Feature Geometry Versus Network Capacity}{Altinel: Feature Geometry Versus Network Capacity}
+
+\begin{abstract}
+Automatic modulation classification depends jointly on signal representation and
+classifier capacity, but these factors are often changed together. This paper
+uses a controlled factorial design that varies a nested feature geometry and
+network width while keeping the observation protocol, backbone family, training
+recipe, and evaluation rules fixed. In the post-unblind test analysis, increasing
+width from $0.50\times$ to $1.00\times$ improves final-epoch accuracy by
+$1.66$ percentage points for the raw two-channel input and $1.57$ points for
+the seven-channel input. From $1.00\times$ to $2.00\times$, F2 changes by
+$-0.15$ points and is not distinguishable, whereas F7 decreases by $0.74$
+points. The seven-channel input is $0.63$ points below the two-channel input
+at $2.00\times$, while the corresponding difference at lower widths is not
+distinguishable. The feature--capacity interaction is
+$-0.68$ points with Holm-adjusted $p=0.0312$. On the 11-class RML2016.10a
+corpus with 128-sample observations, these findings are conditional on the
+study's two splits, short observation, and primary backbone; they do not
+establish hardware or cross-corpus superiority.
+\end{abstract}
+
+\begin{IEEEkeywords}
+automatic modulation classification, feature geometry, network capacity, short-window signals, controlled experiments, deep learning
+\end{IEEEkeywords}
+
+\titlepgskip=-15pt
+\maketitle
+\color{black}
+
+\input{sections/introduction}
+\input{sections/method}
+\input{sections/experimental_setup}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/limitations}
+\input{sections/data_code_availability}
+\input{sections/conclusion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\color{black}
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{dogayaltinel_medeniyet.JPG}}]{\textbf{Dogay Altinel}}
+(Member, IEEE) received the B.S. degree in electronics engineering from Hacettepe University, Ankara, Turkey, in 1992, and the M.Sc. and Ph.D. degrees in telecommunications engineering from Istanbul Technical University, Istanbul, Turkey, in 2014 and 2019, respectively. From 1992 to 2012, he was in the electronics and telecommunications industry. Since 2012, he has been with Istanbul Medeniyet University, Istanbul, Turkey. His research interests include communication theory, wireless networks, energy harvesting systems, deep-learning-based communications, and applications of artificial intelligence.
+\end{IEEEbiography}
+
+\EOD
+\end{document}

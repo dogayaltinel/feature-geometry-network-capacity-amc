@@ -1,0 +1,21 @@
+\begin{table}[!t]
+\caption{Primary Backbone Definition}
+\label{tab:backbone-definition}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{1pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.36\columnwidth}>{\raggedright\arraybackslash}p{0.62\columnwidth}@{}}
+\toprule
+Item & BB1 specification \\
+\midrule
+Input & $(1,C,128)$, $C\in\{2,3,5,7\}$ \\
+Stem & Conv1-D, kernel 5, stride 1 \\
+Blocks & Five depthwise-separable residual blocks \\
+Base channels & $(24,32,48)$ across three stages \\
+Width set & $\{0.50,0.75,1.00,1.50,2.00\}$ \\
+Rounding & Nearest multiple of four; minimum eight \\
+Classifier & Global mean pooling and 11-way linear layer \\
+Parameters at $w=1$ & F2: 10,987; F7: 11,587 \\
+\bottomrule
+\end{tabular}
+\end{table}

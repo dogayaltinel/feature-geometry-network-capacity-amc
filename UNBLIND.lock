@@ -1,0 +1,43 @@
+{
+  "artifacts": {
+    "confirmatory_effects.svg": {
+      "path": "C:\\Users\\EEM\\Desktop\\Codex_agent_RML2016\\papers_Access_2\\feature_geometry_study\\analysis\\confirmatory_artifacts\\confirmatory_effects.svg",
+      "sha256": "eef1c067ee1730477a4442d4f30e9b0ea978472d0666635cad46b40f3dc44dca"
+    },
+    "confirmatory_validation_contrasts.csv": {
+      "path": "C:\\Users\\EEM\\Desktop\\Codex_agent_RML2016\\papers_Access_2\\feature_geometry_study\\analysis\\confirmatory_artifacts\\confirmatory_validation_contrasts.csv",
+      "sha256": "d5447c3a8b8cec9ab9aebd556296177c23f9ae726d56359999cf33e2f5c192d2"
+    },
+    "confirmatory_validation_contrasts.tex": {
+      "path": "C:\\Users\\EEM\\Desktop\\Codex_agent_RML2016\\papers_Access_2\\feature_geometry_study\\analysis\\confirmatory_artifacts\\confirmatory_validation_contrasts.tex",
+      "sha256": "f19b129397109f9180cb5c88742394c4c7122a385c96fe8cf6d125a57ea5faf7"
+    },
+    "confirmatory_validation_report.md": {
+      "path": "C:\\Users\\EEM\\Desktop\\Codex_agent_RML2016\\papers_Access_2\\feature_geometry_study\\analysis\\confirmatory_artifacts\\confirmatory_validation_report.md",
+      "sha256": "cc583e0be5ca8464cda93c6546ef994bd8b0aa6b5e5834659186685cf1fff508"
+    }
+  },
+  "confirmatory_status": {
+    "new_execution_count": 42,
+    "path": "C:\\Users\\EEM\\Desktop\\Codex_agent_RML2016\\papers_Access_2\\feature_geometry_study\\confirmatory_v1\\confirmatory_status.json",
+    "reused_split_A_records": 18,
+    "sha256": "457cd375f9133130df70c74645f5fc4aaddcd3ab7f8e0ca4afcbbf4cb1bb3dbb",
+    "test_accessed": false
+  },
+  "created_utc": "2026-10-24T07:22:21.007024+00:00",
+  "purpose": "Freeze validation analysis and confirmatory records before final test inference.",
+  "rules": [
+    "No test record may be used for model, epoch, feature, capacity, or split selection.",
+    "Test records are written only under records/test/ and carry this lock hash.",
+    "Post-unblind analyses are labeled post hoc."
+  ],
+  "schema_version": "feature_geometry.unblind_lock.v1",
+  "test_inference_script": {
+    "path": "C:\\Users\\EEM\\Desktop\\Codex_agent_RML2016\\papers_Access_2\\feature_geometry_study\\scripts\\run_test_inference.py",
+    "sha256": "7185894566e09ef1b8812457422b6e89ccd344e63fa76f70ea2690e6954b3daf"
+  },
+  "validation_analysis": {
+    "path": "C:\\Users\\EEM\\Desktop\\Codex_agent_RML2016\\papers_Access_2\\feature_geometry_study\\analysis\\confirmatory_validation_analysis.json",
+    "sha256": "37830698a750fe991b63f60a6a056fbd9060c5ab178229c789b8c427db503a82"
+  }
+}

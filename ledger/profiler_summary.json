@@ -1,0 +1,7 @@
+{
+  "core_difference_max": 0.0,
+  "independent_profiler": "torch.fx shape propagation",
+  "non_mac_difference_max": 0.0,
+  "preprocessing_contract": "one operation-equivalent per scalar primitive; trig/sqrt counted as one primitive; reshape/index/copy excluded",
+  "rows": 40
+}

@@ -1,0 +1,141 @@
+\section{Controlled Study Design}
+\label{sec:method}
+The study treats feature geometry and network capacity as separate experimental
+factors. The corpus, observation length, class interface, data partitions,
+optimizer family, learning-rate schedule, augmentation policy, and primary
+evaluation rule are fixed across the main grid. The planned changes are the
+feature configuration, the width multiplier, and the separately identified
+secondary-backbone control.
+
+\subsection{Feature Geometry}
+Let $I_t$ and $Q_t$ denote the RMS-normalized in-phase and quadrature samples
+at time index $t$, and let $\epsilon$ be the fixed feature stabilizer. The
+magnitude and unit-magnitude coordinates are
+\begin{equation}
+\begin{aligned}
+ m_t &= \sqrt{I_t^2+Q_t^2},\\
+ \tilde I_t &= \frac{I_t}{\max(m_t,\epsilon)}, \qquad
+ \tilde Q_t = \frac{Q_t}{\max(m_t,\epsilon)}.
+\end{aligned}
+\label{eq:unit-magnitude}
+\end{equation}
+With $\phi_t=\operatorname{atan2}(Q_t,I_t)$, define
+\[
+\operatorname{wrap}(x)=\operatorname{atan2}(\sin x,\cos x).
+\]
+The difference channels are
+\begin{equation}
+\begin{aligned}
+ \Delta\phi_t &= \operatorname{wrap}(\phi_t-\phi_{t-1}),\\
+ \Delta m_t &= m_t-m_{t-1}, \qquad
+ \Delta\phi_1=\Delta m_1=0.
+\end{aligned}
+\label{eq:feature-differences}
+\end{equation}
+The stabilizers, channel order, and first-sample convention are fixed in the
+feature implementation before the training grid is run. The coordinates in
+Eq.~\eqref{eq:unit-magnitude} are therefore unit-magnitude coordinates, not a
+second RMS normalization of $I$ and $Q$.
+
+Four nested representations are evaluated: F2 contains $I,Q$; F3 adds $m$;
+F5 further adds $\tilde I,\tilde Q$; and F7 adds $\Delta\phi,\Delta m$. The
+nested ordering is a controlled study factor, not a claim that the listed
+channel order is universally optimal. Deterministic feature operations are
+included in the preprocessing-cost ledger and are not silently folded into
+the learned-network FLOP count.
+
+The feature ladder and its deterministic preprocessing scope are summarized in
+Table~\ref{tab:feature-definitions}.
+\input{tables/table_feature_definitions}
+
+\subsection{Backbones and Capacity}
+The primary backbone, BB1, is a fixed one-dimensional depthwise-separable
+convolutional network. Its stem uses a kernel of five, followed by five
+depthwise-separable blocks arranged as three declared stages with base channel
+widths $(24,32,48)$. A width multiplier $w$ scales all stage channels using one
+common rounding rule, with $w\in\{0.50,0.75,1.00,1.50,2.00\}$. The input stem
+changes only as required by the number of feature channels. At $w=1.00$, the
+ledger reports 10,987 parameters for F2 and 11,587 for F7. Receiver-specific
+branches, learned fusion gates, and special attention modules are excluded
+from the BB1 factorization.
+
+The resulting primary-backbone contract is summarized in
+Table~\ref{tab:backbone-definition}; the cost ledger remains the authoritative
+source for every feature--width cell.
+\input{tables/table_backbone_definition}
+
+A compact residual one-dimensional network, BB2, is used only as a directional
+control at F2/F7 and the low/high width settings. BB2 is not treated as a
+second full architecture benchmark; its purpose is to check whether the sign
+and broad pattern of the main contrasts are specific to BB1.
+
+\subsection{Cost Accounting and Matched Comparisons}
+For each feature/backbone/width cell, the cost ledger records trainable and
+total parameter counts, Core MACs, Core FLOPs, non-MAC FLOPs,
+preprocessing FLOPs, Total FLOPs, input shape, profiler version, operator
+coverage, and FP32 weight size. Core FLOPs are defined as twice the Core MACs.
+Total FLOPs is the sum of Core FLOPs, non-MAC FLOPs, and preprocessing FLOPs.
+Elementwise products, residual additions, pooling reductions, and deterministic
+feature transformations not exposed by a module hook are counted explicitly.
+An independent profiler is used as an arithmetic cross-check.
+
+Matched comparisons are generated from the cost ledger before accuracy records
+are read. A pair is accepted only when its declared feature or capacity
+contrast is satisfied and its relative Core-FLOP difference is within the
+locked tolerance. Parameters remain a secondary descriptor. No interpolated
+model or artificial width is introduced when the ledger contains no valid pair.
+The present manuscript reports the nominal-width confirmatory analysis and does
+not use a Core-FLOP-matched pair for an accuracy claim.
+
+\subsection{Effect Definitions}
+At each width $w$, the primary feature effect is
+\begin{equation}
+ E_{\mathrm{feature}}(w)=A(\mathrm{F7},w)-A(\mathrm{F2},w),
+\end{equation}
+where $A$ denotes final-epoch accuracy under the declared split and seed unit.
+F3 and F5 provide intermediate descriptive steps. For each feature
+configuration $f$, the global capacity effect is
+\begin{equation}
+ E_{\mathrm{capacity}}(f)=A(f,2.00)-A(f,0.50).
+\end{equation}
+Local effects compare the adjacent 0.50-to-1.00 and 1.00-to-2.00 ranges. The
+feature--capacity interaction is the change in the capacity effect across
+feature configurations,
+\begin{equation}
+ \Delta_{\mathrm{int}} = E_{\mathrm{capacity}}(\mathrm{F7})
+ - E_{\mathrm{capacity}}(\mathrm{F2}), \label{eq:interaction}
+\end{equation}
+with the nominal-width view reported here. The cost fields remain available for
+future matched analyses, but no Core-FLOP-matched accuracy result is claimed.
+These definitions are fixed before final test access.
+
+\subsection{Statistical Analysis Plan}
+The confirmatory family is defined at the split--seed unit and contains ten
+paired contrasts: F7 minus F2 at 0.50, 1.00, and 2.00; the 0.50-to-2.00
+capacity contrasts for F2 and F7; the 0.50-to-1.00 and 1.00-to-2.00 local
+capacity contrasts for F2 and F7; and the interaction contrast in
+Eq.~\eqref{eq:interaction}. Holm correction is applied across these ten
+contrasts. H4 and H5 are outside the results reported in this manuscript. Paired
+differences are summarized with sample size, mean difference, confidence
+intervals, raw and adjusted $p$-values, and standardized effect sizes.
+
+The primary summaries use exact sign-flip permutation $p$-values and paired
+$t$ intervals. Bootstrap intervals are retained as auxiliary package outputs and are not used
+for manuscript decisions. Because the study has two independently generated splits from the same corpus,
+split-level inference rests on two units; seed-level intervals describe
+training variability conditional on each split. A split-aware mixed model was
+planned but was not fit because only two split levels were available. The
+manuscript instead reports split-stratified descriptive sensitivity checks.
+Conclusions are conditional on the two declared splits, consistent with the
+cautions in \cite{Dietterich1998Tests}.
+A zero-containing interval is described as not distinguishable under the study
+precision, not as proof of equality. Additional analyses are labeled
+exploratory.
+
+\subsection{Analysis and Test Access}
+Validation records are physically separated from test records. Training and
+pre-unblind analysis operate on validation records only; the test-inference
+command refuses to run without the study lock. Test inference is performed
+only after the planned configurations, cost ledger, matching pairs, and
+analysis code are frozen. Test predictions therefore cannot determine an
+epoch, feature configuration, width, matched pair, or split.

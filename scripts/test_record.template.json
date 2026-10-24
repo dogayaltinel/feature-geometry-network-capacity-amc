@@ -1,0 +1,40 @@
+{
+  "schema_version": "feature_geometry.test_record.v1",
+  "record_type": "test_run",
+  "run_id": "[FILL]",
+  "validation_run_id": "[FILL]",
+  "stage": "confirmatory|confirmatory_reused|bb2",
+  "analysis_role": "confirmatory_eligible",
+  "split": "A|B",
+  "seed": 42,
+  "cell": {
+    "feature": "F2|F3|F5|F7",
+    "backbone": "BB1|BB2",
+    "width_multiplier": 0.5,
+    "epoch_budget": 300
+  },
+  "unblind_lock_sha256": "[FILL]",
+  "test": {
+    "dataset": "RML2016.10a",
+    "split": "A|B",
+    "prediction_path": "[FILL]",
+    "logit_dtype": "float16",
+    "sample_count": 0,
+    "num_classes": 11,
+    "final_accuracy": null,
+    "best_validation_checkpoint_accuracy": null,
+    "macro_f1": null,
+    "nll": null,
+    "ece_15_bins": null,
+    "snr_accuracy": {},
+    "class_metrics": {},
+    "confusion_matrix_path": null,
+    "reliability_path": null
+  },
+  "provenance": {
+    "code_commit": "[FILL]",
+    "manifest_commit": "[FILL]",
+    "test_config_sha256": "[FILL]",
+    "created_utc": "[FILL]"
+  }
+}

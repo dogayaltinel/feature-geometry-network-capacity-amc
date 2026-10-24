@@ -1,0 +1,128 @@
+{
+  "schema_version": "feature_geometry.matching_pairs.v1",
+  "ledger_sha256": "c1f87a1ae560416078c64cdd21fb4726cfd51c1997a82ac3995a0bd4c91bf7f4",
+  "tolerance_relative_core_flops": 0.03,
+  "accuracy_accessed": false,
+  "pairs": [
+    {
+      "left_key": "BB2/F2/2",
+      "right_key": "BB2/F3/2",
+      "left_feature": "F2",
+      "right_feature": "F3",
+      "left_width": "2.0",
+      "right_width": "2.0",
+      "relative_core_flop_difference": 0.00223546424305085,
+      "selection_basis": "ledger_only"
+    },
+    {
+      "left_key": "BB2/F2/1.5",
+      "right_key": "BB2/F3/1.5",
+      "left_feature": "F2",
+      "right_feature": "F3",
+      "left_width": "1.5",
+      "right_width": "1.5",
+      "relative_core_flop_difference": 0.0029750006972657883,
+      "selection_basis": "ledger_only"
+    },
+    {
+      "left_key": "BB2/F5/2",
+      "right_key": "BB2/F7/2",
+      "left_feature": "F5",
+      "right_feature": "F7",
+      "left_width": "2.0",
+      "right_width": "2.0",
+      "relative_core_flop_difference": 0.004436218955131804,
+      "selection_basis": "ledger_only"
+    },
+    {
+      "left_key": "BB2/F2/1",
+      "right_key": "BB2/F3/1",
+      "left_feature": "F2",
+      "right_feature": "F3",
+      "left_width": "1.0",
+      "right_width": "1.0",
+      "relative_core_flop_difference": 0.004445741118937468,
+      "selection_basis": "ledger_only"
+    },
+    {
+      "left_key": "BB2/F2/0.75",
+      "right_key": "BB2/F3/0.75",
+      "left_feature": "F2",
+      "right_feature": "F3",
+      "left_width": "0.75",
+      "right_width": "0.75",
+      "relative_core_flop_difference": 0.005558993735274638,
+      "selection_basis": "ledger_only"
+    },
+    {
+      "left_key": "BB2/F5/1.5",
+      "right_key": "BB2/F7/1.5",
+      "left_feature": "F5",
+      "right_feature": "F7",
+      "left_width": "1.5",
+      "right_width": "1.5",
+      "relative_core_flop_difference": 0.0058886854429855634,
+      "selection_basis": "ledger_only"
+    },
+    {
+      "left_key": "BB2/F5/1",
+      "right_key": "BB2/F7/1",
+      "left_feature": "F5",
+      "right_feature": "F7",
+      "left_width": "1.0",
+      "right_width": "1.0",
+      "relative_core_flop_difference": 0.008755249729818466,
+      "selection_basis": "ledger_only"
+    },
+    {
+      "left_key": "BB2/F2/0.5",
+      "right_key": "BB2/F3/0.5",
+      "left_feature": "F2",
+      "right_feature": "F3",
+      "left_width": "0.5",
+      "right_width": "0.5",
+      "relative_core_flop_difference": 0.008792416540733617,
+      "selection_basis": "ledger_only"
+    },
+    {
+      "left_key": "BB2/F5/0.75",
+      "right_key": "BB2/F7/0.75",
+      "left_feature": "F5",
+      "right_feature": "F7",
+      "left_width": "0.75",
+      "right_width": "0.75",
+      "relative_core_flop_difference": 0.010905799030832313,
+      "selection_basis": "ledger_only"
+    },
+    {
+      "left_key": "BB1/F2/2",
+      "right_key": "BB1/F3/2",
+      "left_feature": "F2",
+      "right_feature": "F3",
+      "left_width": "2.0",
+      "right_width": "2.0",
+      "relative_core_flop_difference": 0.016987241873551218,
+      "selection_basis": "ledger_only"
+    },
+    {
+      "left_key": "BB2/F5/0.5",
+      "right_key": "BB2/F7/0.5",
+      "left_feature": "F5",
+      "right_feature": "F7",
+      "left_width": "0.5",
+      "right_width": "0.5",
+      "relative_core_flop_difference": 0.017059842729574837,
+      "selection_basis": "ledger_only"
+    },
+    {
+      "left_key": "BB1/F2/1.5",
+      "right_key": "BB1/F3/1.5",
+      "left_feature": "F2",
+      "right_feature": "F3",
+      "left_width": "1.5",
+      "right_width": "1.5",
+      "relative_core_flop_difference": 0.02196143023814426,
+      "selection_basis": "ledger_only"
+    }
+  ]
+}

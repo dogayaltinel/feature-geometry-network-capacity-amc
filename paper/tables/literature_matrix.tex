@@ -1,0 +1,24 @@
+\begin{table*}[!t]
+\caption{Positioning of the proposed study relative to prior work. Selected works; not exhaustive. \emph{Controlled factor attribution} asks whether the focal factor of a category is varied while the backbone, capacity, representation, and training protocol are controlled sufficiently to support attribution. \emph{Independent} means varied by design while the comparison factor is held fixed; \emph{coupled} means changed with other design elements; \emph{mixed} and \emph{partial} indicate heterogeneity among the selected works.}
+\label{tab:literature-matrix}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.11\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.11\textwidth}>{\raggedright\arraybackslash}p{0.11\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.10\textwidth}@{}}
+\toprule
+\multicolumn{1}{>{\raggedright\arraybackslash}m{0.25\textwidth}}{Category} &
+\multicolumn{1}{>{\raggedright\arraybackslash}m{0.11\textwidth}}{Feature change} &
+\multicolumn{1}{>{\raggedright\arraybackslash}m{0.13\textwidth}}{Capacity change} &
+\multicolumn{1}{>{\raggedright\arraybackslash}m{0.11\textwidth}}{Same backbone} &
+\multicolumn{1}{>{\raggedright\arraybackslash}m{0.11\textwidth}}{Cost reported} &
+\multicolumn{1}{>{\raggedright\arraybackslash}m{0.13\textwidth}}{Controlled factor attribution} &
+\multicolumn{1}{>{\raggedright\arraybackslash}m{0.10\textwidth}}{Refs.} \\
+\midrule
+Raw I/Q baselines & Fixed & Mixed & Partial & Partial & Partial & \cite{OShea2016CRR,West2017Deep} \\
+Representation and feature fusion & Varied & Mixed & Partial & Partial & Partial & \cite{Peng2019Constellation,Teng2020Polar,Huang2021Visualizing,Wang2024AMFN,Zheng2023MobileRaT,WangGuan2025DiDsNet} \\
+Capacity scaling & Mostly fixed & Mixed & Partial & Partial & Partial & \cite{West2017Deep,Chen2022SigNet,Harper2023AMC} \\
+Lightweight architectures & Mixed & Varied (coupled) & Partial & Yes & Partial & \cite{HuynhThe2020MCNet,Li2023LightMFFS,Zheng2023MobileRaT,Wang2024ULNN} \\
+\textbf{This paper} & \textbf{Varied (independent)} & \textbf{Varied (independent)} & \textbf{Yes} & \textbf{Yes} & \textbf{Yes} & \textbf{--} \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,23 @@
+{
+  "source": "analysis\\confirmatory_test_analysis_v2.json",
+  "metric": "test.final_accuracy",
+  "test_accessed": true,
+  "artifacts": [
+    "confirmatory_test_contrasts.csv",
+    "confirmatory_test_split_summary.csv",
+    "confirmatory_test_contrasts.tex",
+    "confirmatory_test_split_summary.tex",
+    "confirmatory_test_effects.svg",
+    "confirmatory_test_effects.pdf",
+    "confirmatory_test_report.md"
+  ],
+  "artifact_sha256": {
+    "confirmatory_test_contrasts.csv": "480f25da4209322ba86a57426c8adf7842f212d031e06452c723b711e6571423",
+    "confirmatory_test_split_summary.csv": "29217f7f24fb926a9f7c8cbd1afe8de2c27eee2d10d2e32bc30fdf0587c60e2c",
+    "confirmatory_test_contrasts.tex": "e68bf781285d16555fb4ffc08d677ec948d9665d83fe381a572a3090073d7bf6",
+    "confirmatory_test_split_summary.tex": "ef28a2ab4ddd8a43fe6e37e6cada0ae04d464071388b71019dbf8774cda87aaf",
+    "confirmatory_test_effects.svg": "d68a32ff214c27f1ad1aab6c883afdd29f63bdcb4ec14fb88daf124361ced2e5",
+    "confirmatory_test_effects.pdf": "eaecb51d4d8b336a06d3dfd90a0f7d48bf976bbab1626d5299934ea1cc9531d6",
+    "confirmatory_test_report.md": "5dac89b80225fb5a0ea9e246f3f2e450f0ce8884a861883ce6c95d681f95afaa"
+  }
+}

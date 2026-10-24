@@ -1,0 +1,23 @@
+{
+  "source": "analysis\\confirmatory_validation_analysis_v2.json",
+  "metric": "metrics.validation.final_accuracy",
+  "test_accessed": false,
+  "artifacts": [
+    "confirmatory_validation_contrasts.csv",
+    "confirmatory_validation_split_summary.csv",
+    "confirmatory_validation_contrasts.tex",
+    "confirmatory_validation_split_summary.tex",
+    "confirmatory_validation_effects.svg",
+    "confirmatory_validation_effects.pdf",
+    "confirmatory_validation_report.md"
+  ],
+  "artifact_sha256": {
+    "confirmatory_validation_contrasts.csv": "20565f6af1bcb36229bc6c4a2f7b7de42893f937f57345c4b5e7bf54269b631a",
+    "confirmatory_validation_split_summary.csv": "07e1dbb42d1bf929be766b057d223e80b66c3770e49263a0e0eb875a0355654c",
+    "confirmatory_validation_contrasts.tex": "4fa36895fa54c6e6b7245e420d74596c960de0458207c0c4ebc905dd16441bbe",
+    "confirmatory_validation_split_summary.tex": "148fa19abc255045e570190d254897b8e96980c9a3eadb948fce526506712c7f",
+    "confirmatory_validation_effects.svg": "c46614b8e8773714de1986c4516a9668625c0b25a733b90c403353ecd528a60b",
+    "confirmatory_validation_effects.pdf": "87220cea9940f54d8cfdba23f922b38b8019acc3fe3b0330234eee500b7e5245",
+    "confirmatory_validation_report.md": "b0cec1eec1a00b5093293f042216c1019bdb8698f42aa2cfad20256aaf4969b5"
+  }
+}

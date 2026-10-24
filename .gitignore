@@ -1,0 +1,30 @@
+# Source data and execution artifacts
+*.pkl
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+*.npz
+records/
+checkpoints/
+predictions/
+logs/
+pilot_runs_v1/
+confirmatory_v1/
+main_grid_v1/
+
+# Local caches and environments
+.venv/
+.pytest_cache/
+__pycache__/
+*.pyc
+.pytest_tmp*/
+
+# Local credentials and machine-specific files
+.env
+*.token
+*.secret
+
+# Derived split index arrays are permitted; the raw dataset remains excluded.
+!data_splits/*.npz

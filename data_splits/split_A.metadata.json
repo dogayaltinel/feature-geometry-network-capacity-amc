@@ -1,0 +1,1376 @@
+{
+  "allocation": {
+    "test": 0.2,
+    "train": 0.6,
+    "validation": 0.2
+  },
+  "classes": [
+    "8PSK",
+    "AM-DSB",
+    "AM-SSB",
+    "BPSK",
+    "CPFSK",
+    "GFSK",
+    "PAM4",
+    "QAM16",
+    "QAM64",
+    "QPSK",
+    "WBFM"
+  ],
+  "counts_by_class_snr": {
+    "8PSK|-10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|-12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|-14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|-16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|-18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|-2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|-20": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|-4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|-6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|-8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|0": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "8PSK|8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|-10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|-12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|-14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|-16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|-18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|-2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|-20": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|-4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|-6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|-8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|0": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-DSB|8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|-10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|-12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|-14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|-16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|-18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|-2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|-20": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|-4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|-6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|-8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|0": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "AM-SSB|8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|-10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|-12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|-14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|-16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|-18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|-2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|-20": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|-4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|-6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|-8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|0": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "BPSK|8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|-10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|-12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|-14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|-16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|-18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|-2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|-20": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|-4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|-6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|-8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|0": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "CPFSK|8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|-10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|-12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|-14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|-16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|-18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|-2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|-20": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|-4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|-6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|-8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|0": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "GFSK|8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|-10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|-12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|-14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|-16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|-18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|-2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|-20": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|-4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|-6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|-8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|0": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "PAM4|8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|-10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|-12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|-14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|-16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|-18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|-2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|-20": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|-4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|-6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|-8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|0": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM16|8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|-10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|-12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|-14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|-16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|-18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|-2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|-20": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|-4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|-6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|-8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|0": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QAM64|8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|-10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|-12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|-14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|-16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|-18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|-2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|-20": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|-4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|-6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|-8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|0": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "QPSK|8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|-10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|-12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|-14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|-16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|-18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|-2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|-20": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|-4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|-6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|-8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|0": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|10": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|12": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|14": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|16": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|18": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|2": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|4": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|6": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    },
+    "WBFM|8": {
+      "test": 200,
+      "total": 1000,
+      "train": 600,
+      "validation": 200
+    }
+  },
+  "dataset": "RML2016.10a",
+  "dataset_sha256": "b29ccc25b00d0718cd3b70ffa9158662ec83f6d9b63ffd845c7bcbe3b3096e8c",
+  "index_file": "papers_Access_2\\feature_geometry_study\\data_splits\\split_A.npz",
+  "index_sha256": "e0a448527d8a3c67815082607d7d4617ba4cffcec4be8b3ad60a97a9cb6665d7",
+  "input_shape": [
+    2,
+    128
+  ],
+  "metadata_sha256": "a087134e4d7e72cb5e35dd9034ca9fe58035264ab9c26812b3a28c5f8ba75886",
+  "seed": 42,
+  "snr_values_db": [
+    -20,
+    -18,
+    -16,
+    -14,
+    -12,
+    -10,
+    -8,
+    -6,
+    -4,
+    -2,
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18
+  ],
+  "source_group_metadata": "unavailable in the source pickle; split is stratified by class and SNR",
+  "split": "A"
+}

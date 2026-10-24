@@ -1,0 +1,86 @@
+\section{Experimental Setup}
+\label{sec:setup}
+
+\subsection{Dataset and Input Protocol}
+The primary study uses RML2016.10a, which contains eleven modulation classes
+over SNR values from $-20$ to $18$ dB in 2-dB increments. Each record is
+represented by a 128-sample IQ observation. Per-example RMS normalization is
+applied before augmentation and feature derivation, using the fixed numerical
+stabilizer recorded in the feature implementation. The class order and the
+eleven-logit output interface are fixed for every condition.
+
+\subsection{Data Splits and Audit}
+Split A is the existing deterministic stratified 60/20/20 partition with a
+recorded seed and index hash. Split B is an independently generated
+stratified 60/20/20 partition with its own seed and index hash. Before model
+training, the study records dataset and split hashes, class-by-SNR counts,
+within-split train/validation/test overlap, duplicate checks, and membership
+overlap between the two replications.
+
+The source dictionary does not expose a source-group identifier for the
+underlying waveform generation. The audit therefore reports exact index and
+duplicate checks supported by the available metadata and does not infer
+source-group independence. This distinction is retained when interpreting the
+second split.
+
+\subsection{Run Matrix and Epoch-Budget Pilot}
+The primary BB1 grid contains four feature configurations, five width
+multipliers, and three training seeds on Split A, for 60 planned records. The
+confirmatory subset uses F2 and F7 at 0.50, 1.00, and 2.00 on both splits with
+the five-seed set $\{42,17,123,2024,31\}$, for 60 records; the first three
+Split-A seeds are reused only when their configuration and code hashes match.
+Split A uses seed 42 and Split B uses seed 7 for split generation. The BB2
+control uses F2/F7 at the low/high widths on Split A with three seeds, for 12
+directional-control records.
+
+Before the main budget is locked, a validation-only pilot evaluates F2/F7 at
+0.50/2.00 under 200- and 300-epoch cosine schedules with seeds 42, 17, and
+123. For each matched cell and seed, the decision compares validation
+accuracy at the two final epochs. The 200-epoch budget is accepted only when
+the paired interval is within the predeclared $\pm0.15$ percentage-point
+equivalence band and no predefined low/high-SNR validation contrast exceeds
+0.30 percentage points. Otherwise, the 300-epoch budget is used. Pilot records
+remain separately labeled; a pilot run can be reused only when its split,
+seed, code hash, and configuration hash match the selected main protocol.
+
+\subsection{Training and Checkpointing}
+All main-grid conditions use AdamW \cite{Loshchilov2019AdamW} with learning
+rate $10^{-3}$, weight decay $10^{-2}$, batch size 512, cross-entropy with
+0.05 label smoothing, and global gradient-norm clipping at 1.0. The learning
+rate follows cosine annealing with $T_{\max}$ equal to the declared total
+epoch budget, following the cosine-schedule formulation of SGDR
+\cite{Loshchilov2017SGDR}. Early stopping is disabled, so the final epoch is
+the primary checkpoint and the best-validation checkpoint is retained only as
+a secondary diagnostic. The augmentation policy is applied to normalized raw I/Q before feature derivation.
+Phase rotation is sampled with probability $0.75$; circular shifts with
+probability $0.50$ use integer offsets from $-8$ to $8$ samples; additive
+Gaussian noise is applied with probability $0.50$ and standard deviation
+$0.025$; and amplitude scaling is applied with probability $0.50$ using a
+Gaussian scale perturbation with standard deviation $0.08$, clipped to
+$[0.75,1.25]$. The same operation order, automatic mixed-precision policy, and
+random-seed handling are recorded for every run.
+
+Every epoch checkpoint stores model, optimizer, scheduler, scaler, and random
+number-generator states. A resumed run is linked to the interrupted record;
+failed, interrupted, NaN, and manually stopped runs are retained in the event
+log rather than overwritten. Validation predictions are written during the
+training phase, while test predictions require the separate post-lock
+inference command.
+
+\subsection{Recorded Metrics and Outputs}
+Each run records final and best validation accuracy, loss, per-SNR accuracy,
+and region means. For the secondary SNR analysis, low, middle, and high
+regions are defined as $\mathrm{SNR}<-8$ dB, $-8\leq\mathrm{SNR}\leq 2$ dB,
+and $\mathrm{SNR}>2$ dB, respectively. The same records include per-class
+accuracy and macro-F1, confusion
+matrices, negative log-likelihood, expected calibration error, epoch curves,
+training time, hardware utilization, and the complete configuration and
+environment metadata. After test access is authorized, the same metrics are
+computed for the final-epoch test predictions. Cost measurements are reported
+separately as parameters, Core MACs, Core FLOPs, non-MAC FLOPs, preprocessing
+FLOPs, and Total FLOPs.
+
+The primary analysis is performed at run, seed, and split levels rather than
+from a pooled sample-level accuracy alone. Generated tables and figures are
+linked to the append-only records through their configuration, ledger, and
+analysis hashes.

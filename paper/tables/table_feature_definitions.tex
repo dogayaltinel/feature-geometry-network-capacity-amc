@@ -1,0 +1,19 @@
+\begin{table}[!t]
+\caption{Nested Feature Geometries. Preprocessing FLOPs are reported per normalized batch-one input of shape $(1,C,128)$ under the deterministic feature ledger.}
+\label{tab:feature-definitions}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{1pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.11\columnwidth}>{\raggedright\arraybackslash}p{0.66\columnwidth}>{\centering\arraybackslash}p{0.19\columnwidth}@{}}
+\toprule
+\multicolumn{1}{>{\raggedright\arraybackslash}m{0.11\columnwidth}}{Code} &
+\multicolumn{1}{>{\raggedright\arraybackslash}m{0.66\columnwidth}}{Channels} &
+\multicolumn{1}{>{\raggedright\arraybackslash}m{0.19\columnwidth}}{\shortstack[c]{Preprocessing\\FLOPs}} \\
+\midrule
+F2 & $I,Q$ & 770 \\
+F3 & $I,Q,\text{magnitude}$ & 1,410 \\
+F5 & $I,Q,\text{magnitude, unit-magnitude }I/Q$ & 1,666 \\
+F7 & $I,Q,\text{magnitude, unit-magnitude }I/Q,\Delta\phi,\Delta m$ & 2,429 \\
+\bottomrule
+\end{tabular}
+\end{table}

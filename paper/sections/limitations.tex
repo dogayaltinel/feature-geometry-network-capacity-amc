@@ -1,0 +1,28 @@
+\section{Scope and Limitations}
+\label{sec:limitations}
+The controlled design isolates representation and capacity within a fixed
+short-window setting, but its scope is intentionally bounded. The main analysis
+uses one synthetic corpus, a 128-sample observation, one primary backbone, a
+predefined capacity range, and a finite set of seeds and data splits. A small
+secondary-backbone control is used for directional checking rather than as a
+second full benchmark. The study reports parameter and operation-count costs;
+it does not make a physical-device latency or energy claim. The split audit
+reports the source metadata available for the corpus.
+
+The present results use nominal width as the capacity axis. Although the cost
+ledger stores Core FLOPs and can define admissible matching pairs, no
+Core-FLOP-matched accuracy comparison is reported here. Likewise, the
+pre-specified H4 SNR-region analysis and H5 secondary-backbone control are not
+included in the current results. They should not be inferred from the nominal
+width contrasts.
+
+All widths share the same learning-rate, weight-decay, and regularization
+settings. The reported capacity effects therefore describe the common protocol
+and do not establish that each width was individually hyperparameter-optimal.
+The nested feature ladder also changes both information content and the number
+of input channels, so it does not identify which individual derived channel
+causes an observed effect. Finally, the study cannot infer source-record
+independence when the dataset metadata do not expose waveform provenance.
+The analysis plan also specified a split-aware mixed model, but it was not fit
+because only two split levels were available. The manuscript therefore uses
+split-stratified descriptive checks and paired split--seed summaries instead.

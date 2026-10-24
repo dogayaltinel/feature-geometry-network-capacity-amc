@@ -1,0 +1,57 @@
+\section{Results}
+\label{sec:results}
+The results below use the post-unblind final-epoch test records for the
+predeclared BB1 confirmatory family. Numerical entries are generated from the
+append-only study records and retain the distinction between confirmatory and
+descriptive analyses.
+
+\subsection{Pilot Epoch Budget}
+The validation-only comparison of the predeclared epoch budgets is reported
+from the pilot audit artifact. The selected budget, decision interval, and
+record-reuse rule are kept separate from the confirmatory accuracy analysis.
+The pilot selected the 300-epoch schedule: the paired 300-minus-200
+validation interval was $[-0.26,+0.31]$ percentage points and the maximum
+predefined low/high-SNR difference was 1.03 percentage points, so the
+200-epoch acceptance rule was not met.
+
+\subsection{Post-Unblind Test Performance}
+Table~\ref{tab:test-cell-summary} reports the absolute final-epoch test
+performance for the six confirmatory cells. Increasing BB1 width from
+$0.50\times$ to $1.00\times$ raises accuracy by 1.66 percentage points for
+F2 and 1.57 percentage points for F7. Increasing width further to
+$2.00\times$ does not improve F2 and reduces the F7 mean relative to
+$1.00\times$. The same cell summaries include macro-F1, negative
+log-likelihood, and expected calibration error.
+\input{tables/table_test_cell_summary}
+
+\subsection{Feature and Capacity Contrasts}
+The complete confirmatory family is reported in
+Table~\ref{tab:confirmatory-statistics}. Feature contrasts are F7 minus F2,
+capacity contrasts are larger width minus smaller width, and the interaction
+is the F7 capacity effect minus the F2 capacity effect. Exact two-sided
+sign-permutation $p$-values are Holm-corrected across the 10 contrasts.
+With $n=10$ paired split--seed units, the smallest attainable two-sided
+$p$-value is $2/2^{10}=0.001953$, reported as 0.0020 when rounded.
+Differences in the text and table were computed from unrounded records; the
+displayed cell means are rounded.
+At $2.00\times$, F7 is lower than F2 by 0.63 percentage points
+(Holm-adjusted $p=0.0195$), whereas the feature contrasts at $0.50\times$
+and $1.00\times$ are not distinguishable under this protocol. The
+$0.50\times$--$1.00\times$ capacity increase is positive for both feature
+sets, while the $1.00\times$--$2.00\times$ change is not distinguishable for
+F2 and is negative for F7. The global interaction contrast is
+$-0.68$ percentage points (Holm-adjusted $p=0.0312$).
+\input{tables/table_confirmatory_statistics}
+
+\input{figures/figure_confirmatory_test_effects}
+
+\subsection{Split-Stratified Sensitivity}
+Table~\ref{tab:split-sensitivity} gives split-stratified test
+contrasts. The direction of the $2.00\times$ F7--F2 contrast is the same in
+both splits, as is the direction of the F7 $1.00\times$--$2.00\times$
+contrast. These split-specific values are descriptive consistency checks;
+they are not treated as an additional independent inferential family.
+\input{tables/table_split_sensitivity}
+The pre-unblind validation analysis gave the same contrast directions and the
+same Holm decisions. It is treated as a protocol-consistency check rather than
+as additional test evidence.

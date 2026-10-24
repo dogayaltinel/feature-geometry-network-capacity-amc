@@ -1,0 +1,19 @@
+\begin{table*}[!t]
+\caption{Post-unblind final-epoch test performance and analytical cost by feature geometry and width. Values are means over the 10 split--seed records in each cell; SD is in percentage points. Core FLOPs and preprocessing FLOPs are from the locked ledger.}
+\label{tab:test-cell-summary}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrrrrrrr@{}}
+\toprule
+Feature & Width & Params & Core FLOPs & Preproc. FLOPs & $n$ & Accuracy (\%) & SD (pp) & Macro-F1 & NLL & ECE \\
+\midrule
+F2 & 0.5$\times$ & 3,371 & 0.282M & 0.770K & 10 & 60.68 & 0.13 & 0.627 & 1.117 & 0.040 \\
+F2 & 1.0$\times$ & 10,987 & 0.974M & 0.770K & 10 & 62.35 & 0.16 & 0.645 & 1.076 & 0.034 \\
+F2 & 2.0$\times$ & 38,987 & 3.586M & 0.770K & 10 & 62.20 & 0.17 & 0.642 & 1.084 & 0.027 \\
+F7 & 0.5$\times$ & 3,671 & 0.359M & 2.429K & 10 & 60.74 & 0.38 & 0.628 & 1.117 & 0.037 \\
+F7 & 1.0$\times$ & 11,587 & 1.127M & 2.429K & 10 & 62.31 & 0.09 & 0.645 & 1.077 & 0.033 \\
+F7 & 2.0$\times$ & 40,187 & 3.893M & 2.429K & 10 & 61.57 & 0.28 & 0.633 & 1.106 & 0.032 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

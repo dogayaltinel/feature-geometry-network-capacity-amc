@@ -1,0 +1,89 @@
+{
+  "schema_version": "feature_geometry.run_record.v1",
+  "record_type": "validation_run",
+  "run_id": "[FILL]",
+  "status": "planned",
+  "stage": "pilot|exploration|confirmatory|confirmatory_reused|bb2",
+  "analysis_role": "pilot|descriptive|confirmatory_eligible",
+  "cell": {
+    "feature": "F2|F3|F5|F7",
+    "backbone": "BB1|BB2",
+    "width_multiplier": 0.5,
+    "epoch_budget": 200,
+    "input_shape": [1, 2, 128],
+    "num_classes": 11
+  },
+  "data": {
+    "dataset": "RML2016.10a",
+    "dataset_sha256": "[FILL]",
+    "split": "A|B",
+    "split_seed": 42,
+    "split_index_sha256": "[FILL]",
+    "train_count": 0,
+    "validation_count": 0,
+    "test_count": 0,
+    "class_snr_distribution_sha256": "[FILL]"
+  },
+  "training": {
+    "seed": 42,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "batch_size": 512,
+    "scheduler": "CosineAnnealing",
+    "t_max": 200,
+    "early_stopping": false,
+    "augmentation": {},
+    "loss": {},
+    "amp": false,
+    "determinism": {}
+  },
+  "provenance": {
+    "code_commit": "[FILL]",
+    "manifest_commit": "[FILL]",
+    "config_sha256": "[FILL]",
+    "environment_lock_sha256": "[FILL]",
+    "started_utc": "[FILL]",
+    "finished_utc": "[FILL]",
+    "resumed": false,
+    "parent_run_id": null
+  },
+  "cost": {
+    "ledger_key": "[FILL]",
+    "ledger_sha256": "[FILL]",
+    "parameters_trainable": 0,
+    "parameters_total": 0,
+    "core_macs": 0,
+    "core_flops": 0,
+    "non_mac_flops": 0,
+    "preprocessing_flops": 0,
+    "total_flops": 0,
+    "profiler": "[FILL]"
+  },
+  "metrics": {
+    "validation": {
+      "final_accuracy": null,
+      "final_loss": null,
+      "best_epoch": null,
+      "best_accuracy": null,
+      "snr_accuracy": {},
+      "class_metrics": {},
+      "confusion_matrix_path": null
+    },
+    "training": {
+      "epochs_completed": 0,
+      "total_seconds": null,
+      "epoch_seconds": []
+    }
+  },
+  "artifacts": {
+    "config_path": null,
+    "epoch_log_path": null,
+    "validation_prediction_path": null,
+    "final_checkpoint_path": null,
+    "best_checkpoint_path": null,
+    "optimizer_checkpoint_path": null,
+    "event_log_path": null
+  },
+  "events": []
+}

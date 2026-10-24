@@ -1,0 +1,37 @@
+\section{Discussion}
+\label{sec:discussion}
+The post-unblind results identify a capacity effect that is concentrated in the
+first width increase. From $0.50\times$ to $1.00\times$, final-epoch accuracy
+increases by 1.66 percentage points for F2 and 1.57 points for F7. The next
+increase is not distinguishable for F2 ($-0.15$ points), whereas F7 decreases
+by 0.74 points under the same protocol. Thus, the present evidence supports a
+protocol-conditional saturation pattern rather than a general claim that a
+larger network is always better.
+
+The feature contrast is not distinguishable at $0.50\times$ or $1.00\times$.
+At $2.00\times$, F7 is lower than F2 by 0.63 points, and the interaction
+contrast is $-0.68$ points (Holm-adjusted $p=0.0312$). These estimates answer the
+declared factorial question within the tested feature ladder and width range.
+They do not show that the additional channels cause noise, cannot use capacity,
+or are intrinsically inferior. Such causal explanations would require further
+controls beyond the present design. The standardized effects in
+Table~\ref{tab:confirmatory-statistics} are likewise conditional on the
+split--seed units and should not be read as device-independent performance
+gains.
+
+The nominal-width feature comparison is also cost-asymmetric: F7 uses about
+9\%--27\% more Core FLOPs than F2 at the three reported widths. Thus, the
+feature results are not cost-matched comparisons; the ledger makes this
+additional analytical cost visible without implying a hardware-latency claim.
+
+The split-stratified check preserves the main directions for the high-width
+feature contrast and for the F7 $1.00\times$--$2.00\times$ contrast, but it is
+reported descriptively rather than as a second independent inferential family.
+The primary interpretation therefore remains conditional on the two declared
+splits, the 128-sample observation, and the BB1 training protocol.
+
+No Core-FLOP-matched accuracy result, SNR-region result (H4), or BB2 result
+(H5) is used in the claims above. The ledger records the cost fields needed for
+future matching, but the present manuscript reports nominal-width accuracy
+contrasts only. This boundary prevents the unavailable analyses from being
+implicitly replaced by unsupported numerical claims.
