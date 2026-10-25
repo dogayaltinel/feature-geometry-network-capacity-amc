@@ -24,7 +24,7 @@ LABELS = {
     "capacity_0.5_to_2.0_F7": "F7: 0.50× to 2.00×",
     "capacity_1.0_to_2.0_F2": "F2: 1.00× to 2.00×",
     "capacity_1.0_to_2.0_F7": "F7: 1.00× to 2.00×",
-    "interaction_capacity_F7_minus_F2": "Interaction: F7 minus F2",
+    "interaction_capacity_F7_minus_F2": "Interaction: F7−F2",
 }
 
 CONTRAST_ORDER = (
@@ -32,10 +32,10 @@ CONTRAST_ORDER = (
     "F7_minus_F2_at_1.0",
     "F7_minus_F2_at_2.0",
     "capacity_0.5_to_1.0_F2",
-    "capacity_0.5_to_1.0_F7",
     "capacity_0.5_to_2.0_F2",
-    "capacity_0.5_to_2.0_F7",
     "capacity_1.0_to_2.0_F2",
+    "capacity_0.5_to_1.0_F7",
+    "capacity_0.5_to_2.0_F7",
     "capacity_1.0_to_2.0_F7",
     "interaction_capacity_F7_minus_F2",
 )
@@ -167,6 +167,7 @@ def write_tex(path: Path, contrasts: dict[str, dict], measurement: str) -> None:
 
 
 def write_plot(path: Path, contrasts: dict[str, dict], measurement: str) -> None:
+    contrasts = order_contrasts(contrasts)
     names = list(contrasts)
     labels = [LABELS.get(name, name) for name in names]
     means = [100 * contrasts[name]["mean_difference"] for name in names]
@@ -222,41 +223,77 @@ def write_plot_pdf(path: Path, contrasts: dict[str, dict], measurement: str) -> 
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
+    from matplotlib.patches import Patch
 
+    contrasts = order_contrasts(contrasts)
     names = list(contrasts)
     labels = [LABELS.get(name, name) for name in names]
     means = [100 * contrasts[name]["mean_difference"] for name in names]
     lows = [100 * contrasts[name]["ci95_t"][0] for name in names]
     highs = [100 * contrasts[name]["ci95_t"][1] for name in names]
-    y_values = list(range(len(names)))
-    fig, ax = plt.subplots(figsize=(9.0, 6.5))
+    row_scale = 1.2
+    y_values = [index * row_scale for index in range(len(names))]
+    group_colors = {
+        "feature": "#009e73",
+        "F2": "#1769aa",
+        "F7": "#d55e00",
+        "interaction": "#7b3294",
+    }
+    matplotlib.rcParams.update({
+        "font.family": "Arial",
+        "axes.unicode_minus": True,
+        "pdf.fonttype": 42,
+    })
+    fig, ax = plt.subplots(figsize=(7.16, 2.90))
+    fig.subplots_adjust(left=0.255, right=0.985, top=0.82, bottom=0.25)
     ax.axvspan(-0.15, 0.15, color="#dceeff", alpha=0.75, label="+/- 0.15 pp reference band")
     for index, (name, mean, low, high) in enumerate(zip(names, means, lows, highs)):
         significant = contrasts[name]["p_holm"] < 0.05
+        if name.startswith("interaction"):
+            color = group_colors["interaction"]
+        elif name.startswith("F7_minus_F2"):
+            color = group_colors["feature"]
+        elif name.endswith("_F2"):
+            color = group_colors["F2"]
+        elif name.endswith("_F7"):
+            color = group_colors["F7"]
+        else:
+            color = group_colors["interaction"]
         ax.errorbar(
             mean,
-            index,
+            y_values[index],
             xerr=[[mean - low], [high - mean]],
             fmt="o",
-            markersize=5,
-            markerfacecolor="#1769aa" if significant else "white",
-            markeredgecolor="#111111" if significant else "#666666",
-            ecolor="#333333",
-            capsize=3,
-            linewidth=1.2,
+            markersize=3.0,
+            markerfacecolor=color if significant else "white",
+            markeredgecolor=color,
+            ecolor=color,
+            capsize=2.5,
+            linewidth=0.75,
         )
         if index in (2, 8):
-            ax.axhline(index + 0.5, color="#999999", linestyle="--", linewidth=0.8)
-    ax.axvline(0, color="#444444", linewidth=0.8)
+            ax.axhline((index + 0.5) * row_scale, color="#999999", linestyle="--", linewidth=0.7)
+    ax.axvline(0, color="#444444", linewidth=0.75)
     ax.set_yticks(y_values)
-    ax.set_yticklabels(labels, fontsize=9)
+    ax.set_yticklabels(labels, fontsize=6)
     ax.invert_yaxis()
+    ax.set_ylim(y_values[-1] + 1.75, -1.25)
     ax.set_xlim(-1.35, 2.10)
     ax.set_xticks([-1, 0, 1, 2])
-    ax.set_xlabel(f"Difference in {measurement} accuracy (percentage points)")
-    ax.legend(loc="lower right", fontsize=9, frameon=False)
-    fig.tight_layout()
-    fig.savefig(path, format="pdf", bbox_inches="tight")
+    ax.tick_params(axis="x", labelsize=6, pad=2)
+    ax.tick_params(axis="y", length=0, pad=3)
+    ax.set_xlabel(f"Difference in {measurement} accuracy (percentage points)", fontsize=6, labelpad=3)
+    for spine in ax.spines.values():
+        spine.set_linewidth(0.8)
+        spine.set_color("#444444")
+    legend_handles = [
+        Patch(facecolor="#dceeff", edgecolor="none", alpha=0.75, label="±0.15 pp reference band"),
+        Line2D([0], [0], marker="o", color="none", markerfacecolor="#1769aa", markeredgecolor="#111111", markersize=3.0, label="Holm p < 0.05"),
+        Line2D([0], [0], marker="o", color="none", markerfacecolor="white", markeredgecolor="#666666", markersize=3.0, label="otherwise"),
+    ]
+    ax.legend(handles=legend_handles, loc="lower right", bbox_to_anchor=(0.995, 0.02), ncol=3, frameon=False, fontsize=6, handletextpad=0.25, columnspacing=0.6, borderaxespad=0)
+    fig.savefig(path, format="pdf", bbox_inches="tight", pad_inches=0.02)
     plt.close(fig)
 
 
