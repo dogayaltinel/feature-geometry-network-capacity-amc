@@ -26,15 +26,18 @@ second split.
 \subsection{Run Matrix and Epoch-Budget Pilot}
 The primary BB1 grid contains four feature configurations, five width
 multipliers, and three training seeds on Split A, for 60 planned records. The
-confirmatory subset uses F2 and F7 at 0.50, 1.00, and 2.00 on both splits with
+confirmatory subset uses F2 and F7 at $0.50\times$, $1.00\times$, and
+$2.00\times$ on both splits with
 the five-seed set $\{42,17,123,2024,31\}$, for 60 records; the first three
 Split-A seeds are reused only when their configuration and code hashes match.
+This manuscript analyzes this confirmatory subset; the remaining main-grid
+cells (F3, F5, $0.75\times$, and $1.50\times$) are not analyzed here.
 Split A uses seed 42 and Split B uses seed 7 for split generation. The BB2
-control uses F2/F7 at the low/high widths on Split A with three seeds, for 12
-directional-control records.
+control was planned for F2/F7 at the low/high widths on Split A with three
+seeds, for 12 directional-control records, but is not reported here.
 
 Before the main budget is locked, a validation-only pilot evaluates F2/F7 at
-0.50/2.00 under 200- and 300-epoch cosine schedules with seeds 42, 17, and
+$0.50\times$/$2.00\times$ under 200- and 300-epoch cosine schedules with seeds 42, 17, and
 123. For each matched cell and seed, the decision compares validation
 accuracy at the two final epochs. The 200-epoch budget is accepted only when
 the paired interval is within the predeclared $\pm0.15$ percentage-point

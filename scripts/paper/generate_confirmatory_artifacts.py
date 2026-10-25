@@ -15,17 +15,34 @@ from pathlib import Path
 
 
 LABELS = {
-    "F7_minus_F2_at_0.5": "F7-F2 at 0.5x",
-    "F7_minus_F2_at_1.0": "F7-F2 at 1.0x",
-    "F7_minus_F2_at_2.0": "F7-F2 at 2.0x",
-    "capacity_0.5_to_1.0_F2": "F2: 0.5x to 1.0x",
-    "capacity_0.5_to_1.0_F7": "F7: 0.5x to 1.0x",
-    "capacity_0.5_to_2.0_F2": "F2: 0.5x to 2.0x",
-    "capacity_0.5_to_2.0_F7": "F7: 0.5x to 2.0x",
-    "capacity_1.0_to_2.0_F2": "F2: 1.0x to 2.0x",
-    "capacity_1.0_to_2.0_F7": "F7: 1.0x to 2.0x",
+    "F7_minus_F2_at_0.5": "F7−F2 at 0.50×",
+    "F7_minus_F2_at_1.0": "F7−F2 at 1.00×",
+    "F7_minus_F2_at_2.0": "F7−F2 at 2.00×",
+    "capacity_0.5_to_1.0_F2": "F2: 0.50× to 1.00×",
+    "capacity_0.5_to_1.0_F7": "F7: 0.50× to 1.00×",
+    "capacity_0.5_to_2.0_F2": "F2: 0.50× to 2.00×",
+    "capacity_0.5_to_2.0_F7": "F7: 0.50× to 2.00×",
+    "capacity_1.0_to_2.0_F2": "F2: 1.00× to 2.00×",
+    "capacity_1.0_to_2.0_F7": "F7: 1.00× to 2.00×",
     "interaction_capacity_F7_minus_F2": "Interaction: F7 minus F2",
 }
+
+CONTRAST_ORDER = (
+    "F7_minus_F2_at_0.5",
+    "F7_minus_F2_at_1.0",
+    "F7_minus_F2_at_2.0",
+    "capacity_0.5_to_1.0_F2",
+    "capacity_0.5_to_1.0_F7",
+    "capacity_0.5_to_2.0_F2",
+    "capacity_0.5_to_2.0_F7",
+    "capacity_1.0_to_2.0_F2",
+    "capacity_1.0_to_2.0_F7",
+    "interaction_capacity_F7_minus_F2",
+)
+
+
+def order_contrasts(contrasts: dict[str, dict]) -> dict[str, dict]:
+    return {name: contrasts[name] for name in CONTRAST_ORDER if name in contrasts}
 
 
 def sha256_file(path: Path) -> str:
@@ -244,7 +261,7 @@ def write_plot_pdf(path: Path, contrasts: dict[str, dict], measurement: str) -> 
 
 
 def write_report(path: Path, analysis_path: Path, data: dict, measurement: str) -> None:
-    contrasts = data["contrasts"]
+    contrasts = order_contrasts(data["contrasts"])
     phase = "pre-unblind validation" if measurement == "validation" else "post-unblind test"
 
     def line(name: str) -> str:

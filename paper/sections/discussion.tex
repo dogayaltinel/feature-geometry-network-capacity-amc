@@ -19,14 +19,13 @@ Table~\ref{tab:confirmatory-statistics} are likewise conditional on the
 split--seed units and should not be read as device-independent performance
 gains.
 
-The nominal-width feature comparison is also cost-asymmetric. From a cost
-perspective, widening F2 from $1.00\times$ to $2.00\times$ multiplies Core
+From a cost perspective, widening F2 from $1.00\times$ to $2.00\times$ multiplies Core
 FLOPs by about 3.7 ($0.974$M to $3.586$M, Table~\ref{tab:test-cell-summary})
 without a detectable accuracy gain ($-0.15$ points, 95\% interval
 $[-0.35,+0.05]$). For F7, the same step reduces accuracy by 0.74 points.
 Within the tested range, widening beyond $1.00\times$ therefore adds
-analytical cost without a detectable gain for F2 and with a loss for F7. F7
-also uses about 9\%--27\% more Core FLOPs than F2 at the same width without a
+analytical cost without a detectable gain for F2 and with a loss for F7. At a
+fixed width, F7 also uses about 9\%--27\% more Core FLOPs than F2 without a
 detectable benefit at $0.50\times$ or $1.00\times$. These statements concern
 analytical operation counts only and do not imply latency, energy, or
 edge-deployment advantages.
