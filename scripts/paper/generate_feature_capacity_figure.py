@@ -87,7 +87,7 @@ def write_figure(rows: list[dict[str, object]], output: Path) -> None:
                     linewidths=0.65,
                     zorder=3,
                 )
-        ax.plot(WIDTHS, means, color=FEATURE_COLORS[feature], linestyle=line_styles[feature], marker="D", markersize=4.2, linewidth=1.25, zorder=4)
+        ax.plot(WIDTHS, means, color=FEATURE_COLORS[feature], linestyle=line_styles[feature], marker="D", markersize=4.2, linewidth=0.75, zorder=4)
 
     ax.set_xticks(WIDTHS, ["0.50$\u00d7$", "1.00$\u00d7$", "2.00$\u00d7$"])
     ax.set_xlabel("Width multiplier", fontsize=6.2)
@@ -100,8 +100,8 @@ def write_figure(rows: list[dict[str, object]], output: Path) -> None:
     ax.tick_params(labelsize=6.2)
     ax.legend(
         handles=[
-            Line2D([0], [0], color=FEATURE_COLORS["F2"], linestyle="-", marker="D", linewidth=1.25, markersize=4, label="F2"),
-            Line2D([0], [0], color=FEATURE_COLORS["F7"], linestyle="--", marker="D", linewidth=1.25, markersize=4, label="F7"),
+            Line2D([0], [0], color=FEATURE_COLORS["F2"], linestyle="-", marker="D", linewidth=0.75, markersize=4, label="F2"),
+            Line2D([0], [0], color=FEATURE_COLORS["F7"], linestyle="--", marker="D", linewidth=0.75, markersize=4, label="F7"),
             Line2D([0], [0], color="0.25", marker="o", markerfacecolor="0.25", linestyle="None", markersize=4, label="Split A"),
             Line2D([0], [0], color="0.25", marker="s", markerfacecolor="white", linestyle="None", markersize=4, label="Split B"),
         ],
